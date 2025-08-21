@@ -1,5 +1,7 @@
 # FOCIX - Next-Generation Cognitive Training Eyewear
 
+🌐 **Live Website**: [https://kingivthe1st.github.io/focix/](https://kingivthe1st.github.io/focix/)
+
 Revolutionary strobe eyewear that sharpens focus, enhances reaction time, and amplifies human performance.
 
 ## 🎯 Project Overview
@@ -47,15 +49,39 @@ FOCIX is developing cutting-edge cognitive training technology through advanced 
 - **$2B** Year 5 Valuation Target
 - **12 Months** to Profitability
 
-## 🌐 Website
+## 🌐 Website Features
 
 The website is built with modern HTML5, CSS3, and JavaScript featuring:
 
-- Responsive design for all devices
-- Interactive reaction time challenge
-- Smooth animations and transitions
-- Professional investor-focused presentation
-- Custom cursor and dynamic effects
+- **Interactive Design** - Custom cursor and dynamic animations
+- **Responsive Layout** - Optimized for all devices
+- **Cognitive Challenge** - Interactive reaction time test
+- **Professional Presentation** - Investor-focused design
+- **Performance Optimized** - Fast loading and smooth animations
+
+### Key Interactive Elements:
+- ⚡ **Custom animated cursor**
+- 🎯 **Reaction time challenge game**
+- 📊 **Animated statistics counters**
+- 🎨 **Floating glasses animation**
+- 🔥 **Smooth scroll navigation**
+- 💎 **Glassmorphism effects**
+
+## 📁 Repository Structure
+
+```
+focix/
+├── index.html          # Main website file
+├── README.md           # Project documentation
+└── .git/               # Git repository data
+```
+
+## 🚀 Development
+
+To run locally:
+1. Clone this repository
+2. Open `index.html` in your browser
+3. Experience the full interactive website
 
 ## 📧 Contact
 
