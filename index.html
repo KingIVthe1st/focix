@@ -565,10 +565,28 @@
             padding: 1.5rem;
             border-radius: 15px;
             border: 2px solid var(--primary-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .investment-glasses-image {
+            width: 100%;
+            height: 120px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 1rem;
+            filter: brightness(1.2) contrast(1.1);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .investment-metric:hover .investment-glasses-image {
+            transform: scale(1.05);
+            filter: brightness(1.4) contrast(1.2);
         }
 
         .investment-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-red);
             margin-bottom: 0.5rem;
@@ -955,18 +973,22 @@
         
         <div class="investment-highlight">
             <div class="investment-metric">
+                <div class="investment-glasses-image" style="background-image: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG')"></div>
                 <div class="investment-value">$7M</div>
                 <div class="investment-label">Funding Target</div>
             </div>
             <div class="investment-metric">
+                <div class="investment-glasses-image" style="background-image: url('./ASSETS/glasses solo/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG')"></div>
                 <div class="investment-value">5,982%</div>
                 <div class="investment-label">5-Year ROI</div>
             </div>
             <div class="investment-metric">
+                <div class="investment-glasses-image" style="background-image: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG')"></div>
                 <div class="investment-value">$2B</div>
                 <div class="investment-label">Year 5 Valuation</div>
             </div>
             <div class="investment-metric">
+                <div class="investment-glasses-image" style="background-image: url('./ASSETS/glasses solo/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG')"></div>
                 <div class="investment-value">12</div>
                 <div class="investment-label">Months to Profitability</div>
             </div>
