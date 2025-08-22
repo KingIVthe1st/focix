@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FOCIX Smart Glasses - Revolutionary eyewear with patented strobe technology for enhanced cognitive performance. Pre-order launching 2025.">
+    <meta name="keywords" content="smart glasses, cognitive enhancement, strobe technology, performance training, FOCIX">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FOCIX Smart Glasses - Revolutionary Cognitive Enhancement Technology">
+    <meta property="og:description" content="Pre-order FOCIX Smart Glasses featuring patented strobe technology for enhanced reaction time and cognitive performance.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>FOCIX Smart Glasses | Revolutionary Cognitive Enhancement Technology</title>
+    <style>
+        :root {
+            --primary-red: #e74c3c;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #000000;
+            --light-text: #ffffff;
+            --gray-text: #cccccc;
+            --accent-blue: #3498db;
+            --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            --gradient-dark: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Mobile-first responsive approach */
+        @media (pointer: fine) {
+            body { cursor: none; }
+            .custom-cursor {
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background: var(--primary-red);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: difference;
+                transition: transform 0.1s ease;
+            }
+        }
+
+        /* Navigation - Optimized */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section - Optimized */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--gradient-dark);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Floating Glasses - Mobile Optimized */
+        .floating-glasses {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 150px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 15px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .glasses-showcase {
+            width: 150px;
+            height: 100px;
+            background: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG') center/contain no-repeat;
+            filter: brightness(1.2) contrast(1.1);
+        }
+
+        /* Buttons - Optimized */
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        /* Image Carousel - Performance Optimized */
+        .image-carousel {
+            padding: 4rem 1rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 20px;
+            border: 2px solid var(--primary-red);
+            height: 300px;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: carouselScroll 20s linear infinite;
+            height: 100%;
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes carouselScroll {
+            0% { transform: translateX(0); }
+            16.67% { transform: translateX(-100%); }
+            33.33% { transform: translateX(-200%); }
+            50% { transform: translateX(-300%); }
+            66.67% { transform: translateX(-400%); }
+            83.33% { transform: translateX(-500%); }
+            100% { transform: translateX(-600%); }
+        }
+
+        /* Product Gallery - Mobile Optimized */
+        .product-gallery {
+            padding: 4rem 1rem;
+            background: var(--dark-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+
+        .section-subtitle {
+            color: var(--gray-text);
+            margin-bottom: 3rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: var(--gradient-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-red);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.02);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-title {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .gallery-description {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Technology Section - Simplified */
+        .tech-showcase {
+            padding: 4rem 1rem;
+            background: var(--darker-bg);
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .tech-content h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary-red);
+        }
+
+        .tech-content p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .tech-image-container {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--gradient-dark);
+            border: 2px solid var(--primary-red);
+        }
+
+        .tech-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Product Section - Streamlined */
+        .product-section {
+            padding: 4rem 1rem;
+            background: var(--dark-bg);
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .product-card {
+            background: var(--gradient-dark);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--primary-red);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+
+        .product-description {
+            color: var(--gray-text);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section - Simplified */
+        .stats-section {
+            padding: 4rem 1rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .stat-card {
+            padding: 2rem 1rem;
+            background: var(--gradient-dark);
+            border-radius: 15px;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* Team Section - Optimized */
+        .team-section {
+            padding: 4rem 1rem;
+            background: var(--dark-bg);
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .team-card {
+            background: var(--gradient-dark);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-red);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-red);
+        }
+
+        .team-role {
+            color: var(--gray-text);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .team-description {
+            color: var(--gray-text);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Investment Section */
+        .investment-section {
+            padding: 4rem 1rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .investment-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        .investment-metric {
+            background: var(--gradient-dark);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-red);
+        }
+
+        .investment-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .investment-label {
+            color: var(--gray-text);
+            font-size: 0.8rem;
+        }
+
+        /* Footer - Simplified */
+        .footer {
+            background: var(--darker-bg);
+            padding: 3rem 1rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(231, 76, 60, 0.2);
+            color: var(--gray-text);
+            font-size: 0.8rem;
+        }
+
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .nav {
+                padding: 1rem 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+                position: relative;
+            }
+            
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--primary-red);
+                transition: width 0.3s ease;
+            }
+            
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .hero-cta {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .floating-glasses {
+                display: flex;
+                width: 300px;
+                height: 200px;
+            }
+            
+            .glasses-showcase {
+                width: 200px;
+                height: 130px;
+            }
+            
+            .carousel-wrapper {
+                height: 400px;
+            }
+            
+            .tech-hero {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+            
+            .tech-image-container {
+                height: 400px;
+            }
+        }
+
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Indicators for Accessibility */
+        .btn:focus, .nav-links a:focus {
+            outline: 2px solid var(--primary-red);
+            outline-offset: 2px;
+        }
+
+        /* Loading optimization */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">FOCIX</a>
+            <ul class="nav-links">
+                <li><a href="#product">Smart Glasses</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#investment">Pre-Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="floating-glasses">
+            <div class="glasses-showcase"></div>
+        </div>
+        <div class="hero-content">
+            <div class="coming-soon-badge">Launching 2025</div>
+            <h1 class="hero-title">FOCIX<br>SMART GLASSES</h1>
+            <p class="hero-subtitle">Revolutionary eyewear with patented strobe technology that enhances cognitive performance and reaction time</p>
+            <div class="hero-cta">
+                <a href="#investment" class="btn btn-primary">Pre-Order Now</a>
+                <a href="#product" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-carousel" id="gallery">
+        <h2 class="section-title">Smart Glasses Collection</h2>
+        <p class="section-subtitle">Premium eyewear designed for peak performance</p>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/glasses solo/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/case/IMG_2673.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/case/5C8CB6E4-ED28-4D66-9DD6-F9D480BDFEC0.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/case/6F45CB09-B741-4C3B-879D-77E5BC8BF88B.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/14D8198A-52CB-47D6-86AC-F187F41CBC08.PNG')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-gallery">
+        <h2 class="section-title">Product Showcase</h2>
+        <p class="section-subtitle">Explore our revolutionary smart glasses technology</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-image" style="background-image: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG')"></div>
+                <div class="gallery-content">
+                    <h3 class="gallery-title">FOCIX Smart Glasses</h3>
+                    <p class="gallery-description">Revolutionary eyewear with patented strobe technology for enhanced cognitive performance</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image" style="background-image: url('./ASSETS/glasses solo/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG')"></div>
+                <div class="gallery-content">
+                    <h3 class="gallery-title">Advanced Lens Technology</h3>
+                    <p class="gallery-description">Precision-engineered strobe lenses for optimal reaction time training</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image" style="background-image: url('./ASSETS/case/5C8CB6E4-ED28-4D66-9DD6-F9D480BDFEC0.PNG')"></div>
+                <div class="gallery-content">
+                    <h3 class="gallery-title">Premium Case</h3>
+                    <p class="gallery-description">Durable protective case designed for your FOCIX glasses</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image" style="background-image: url('./ASSETS/models/7CFFA31F-A042-40F2-99CE-7267C9BC43B5.PNG')"></div>
+                <div class="gallery-content">
+                    <h3 class="gallery-title">Durable Build</h3>
+                    <p class="gallery-description">Waterproof and impact-resistant for any training environment</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image" style="background-image: url('./ASSETS/models/5EEBB7D3-1F5E-4839-A5D0-B59C0AFF1760.PNG')"></div>
+                <div class="gallery-content">
+                    <h3 class="gallery-title">Ergonomic Fit</h3>
+                    <p class="gallery-description">Comfortable design for extended training sessions</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image" style="background-image: url('./ASSETS/case/6F45CB09-B741-4C3B-879D-77E5BC8BF88B.PNG')"></div>
+                <div class="gallery-content">
+                    <h3 class="gallery-title">Case Collection</h3>
+                    <p class="gallery-description">Multiple case options to keep your glasses secure</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-showcase" id="technology">
+        <div class="tech-container">
+            <div class="tech-hero">
+                <div class="tech-content">
+                    <h2>Smart Glasses Technology</h2>
+                    <p>Revolutionary FOCIX smart glasses featuring patented strobe technology that transforms how your brain processes visual information. Our cutting-edge eyewear unlocks human potential through precisely-engineered cognitive enhancement.</p>
+                    <a href="#investment" class="btn btn-primary">Pre-Order Your Glasses</a>
+                </div>
+                <div class="tech-image-container">
+                    <div class="tech-image" style="background-image: url('./ASSETS/models/060CE0BE-61C9-412C-85E5-082FD213D4BD.PNG')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section" id="product">
+        <h2 class="section-title">FOCIX Lineup</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">FOCIX Smart Glasses Pro</h3>
+                <p class="product-description">Our flagship smart glasses with patented strobe technology for enhanced cognitive performance and reaction time training. <strong>Launching 2025</strong></p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Companion App</h3>
+                <p class="product-description">Intelligent training companion with personalized sessions, real-time analytics, and adaptive training protocols. <strong>Beta Access Soon</strong></p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Premium Accessories</h3>
+                <p class="product-description">Complete your FOCIX experience with premium protective cases and replacement components. <strong>Available with Glasses</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <h2 class="section-title">Market Opportunity</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">$34B</div>
+                <div class="stat-label">Global Sports Tech Market</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$69B</div>
+                <div class="stat-label">Projected Market 2028</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15%</div>
+                <div class="stat-label">Expected CAGR Growth</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$489M</div>
+                <div class="stat-label">U.S. Esports Market</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section" id="team">
+        <h2 class="section-title">Leadership Team</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">RG</div>
+                <h3 class="team-name">Russell Gulotta</h3>
+                <p class="team-role">President</p>
+                <p class="team-description">Tech innovator with 15+ years leading product development and emerging technologies.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">MB</div>
+                <h3 class="team-name">Mark Bullock</h3>
+                <p class="team-role">Chief Marketing Officer</p>
+                <p class="team-description">20+ years in launching and scaling ventures; expert in brand strategy and marketing leadership.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">CL</div>
+                <h3 class="team-name">Charles Lewis</h3>
+                <p class="team-role">Vice President</p>
+                <p class="team-description">20 years of entrepreneurship experience driving strategic brand growth and business development.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">DD</div>
+                <h3 class="team-name">Darryl Davis</h3>
+                <p class="team-role">Product & Logistics</p>
+                <p class="team-description">Product development, supply chain, and legal expertise ensuring operational excellence.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">SA</div>
+                <h3 class="team-name">Sultan Aziz</h3>
+                <p class="team-role">VP Sales</p>
+                <p class="team-description">20+ years leading sales and partnerships across sports and lifestyle markets.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="investment-section" id="investment">
+        <h2 class="section-title">Pre-Order FOCIX Smart Glasses</h2>
+        <p class="section-subtitle">Reserve your FOCIX smart glasses today - Be among the first to experience revolutionary cognitive enhancement eyewear</p>
+        
+        <div class="investment-highlight">
+            <div class="investment-metric">
+                <div class="investment-value">$7M</div>
+                <div class="investment-label">Funding Target</div>
+            </div>
+            <div class="investment-metric">
+                <div class="investment-value">5,982%</div>
+                <div class="investment-label">5-Year ROI</div>
+            </div>
+            <div class="investment-metric">
+                <div class="investment-value">$2B</div>
+                <div class="investment-label">Year 5 Valuation</div>
+            </div>
+            <div class="investment-metric">
+                <div class="investment-value">12</div>
+                <div class="investment-label">Months to Profitability</div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.25rem 3rem;">Pre-Order FOCIX Glasses</a>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">FOCIX</div>
+            <p class="footer-text">Revolutionizing cognitive performance through innovative smart glasses technology</p>
+            <div class="footer-links">
+                <a href="mailto:investors@focix.com">Investor Relations</a>
+                <a href="mailto:info@focix.com">General Inquiries</a>
+                <a href="#" onclick="alert('Press kit available upon request')">Press Kit</a>
+                <a href="#" onclick="alert('Partnership opportunities available')">Partnerships</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FOCIX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Performance-optimized JavaScript
+        (function() {
+            'use strict';
+
+            // Custom Cursor (Desktop only)
+            if (window.matchMedia('(pointer: fine)').matches) {
+                const cursor = document.querySelector('.custom-cursor');
+                let ticking = false;
+                
+                function updateCursor(e) {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }
+                document.addEventListener('mousemove', updateCursor, { passive: true });
+            }
+
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Navigation Scroll Effect
+            let lastScrollY = 0;
+            const nav = document.querySelector('.nav');
+            
+            function handleScroll() {
+                const scrollY = window.scrollY;
+                if (scrollY > 50) {
+                    nav.style.background = 'rgba(0, 0, 0, 0.98)';
+                } else {
+                    nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                }
+                lastScrollY = scrollY;
+            }
+            
+            window.addEventListener('scroll', () => {
+                requestAnimationFrame(handleScroll);
+            }, { passive: true });
+
+            // Ensure carousel always keeps moving
+            const carouselTrack = document.querySelector('.carousel-track');
+            if (carouselTrack) {
+                setInterval(() => {
+                    if (carouselTrack.style.animationPlayState === 'paused') {
+                        carouselTrack.style.animationPlayState = 'running';
+                    }
+                }, 100);
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for scroll animations
+            document.querySelectorAll('.product-card, .stat-card, .team-card, .investment-metric, .gallery-item').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Counter animation for stats (simplified)
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const numbers = entry.target.querySelectorAll('.stat-number');
+                        numbers.forEach(number => {
+                            number.style.opacity = '1';
+                            number.style.transform = 'translateY(0)';
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+
+            // Preload critical assets
+            window.addEventListener('load', () => {
+                document.body.classList.add('loaded');
+            });
+
+            // Add hover effects for interactive elements (desktop only)
+            if (window.matchMedia('(pointer: fine)').matches) {
+                const cursor = document.querySelector('.custom-cursor');
+                document.querySelectorAll('.btn, .product-card, .team-card, .gallery-item').forEach(element => {
+                    element.addEventListener('mouseenter', () => {
+                        if (cursor) {
+                            cursor.style.transform += ' scale(1.5)';
+                            cursor.style.background = '#3498db';
+                        }
+                    });
+                    
+                    element.addEventListener('mouseleave', () => {
+                        if (cursor) {
+                            cursor.style.transform = cursor.style.transform.replace(' scale(1.5)', '');
+                            cursor.style.background = 'var(--primary-red)';
+                        }
+                    });
+                });
+            }
+
+            // Keyboard navigation support
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', () => {
+                document.body.classList.remove('keyboard-navigation');
+            });
+
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOCIX | Revolutionary Smart Glasses Technology - Coming Soon</title>
+    <style>
+        :root {
+            --primary-red: #e74c3c;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #000000;
+            --light-text: #ffffff;
+            --gray-text: #cccccc;
+            --accent-blue: #3498db;
+            --gradient-primary: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            --gradient-dark: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section with Image Integration */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--gradient-dark);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10px, 10px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.5s both;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: slideUp 1s ease-out 1s both;
+        }
+
+        /* Enhanced Floating Glasses with Real Product Images */
+        .floating-glasses {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 300px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 20px;
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.9;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .glasses-showcase {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG') center/contain no-repeat;
+            filter: brightness(1.2) contrast(1.1);
+            animation: glassesGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glassesGlow {
+            0% { filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 10px rgba(231, 76, 60, 0.3)); }
+            100% { filter: brightness(1.4) contrast(1.2) drop-shadow(0 0 20px rgba(231, 76, 60, 0.6)); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(20px); }
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Product Gallery Section */
+        .product-gallery {
+            padding: 100px 2rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: var(--gradient-dark);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-title {
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-description {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Technology Showcase */
+        .tech-showcase {
+            padding: 100px 2rem;
+            background: var(--dark-bg);
+        }
+
+        .tech-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tech-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .tech-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-red);
+        }
+
+        .tech-content p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .tech-image-container {
+            position: relative;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--gradient-dark);
+            border: 2px solid var(--primary-red);
+        }
+
+        .tech-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-image-container:hover .tech-image {
+            transform: scale(1.1);
+        }
+
+        /* Rotating Image Carousel */
+        .image-carousel {
+            padding: 100px 2rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 20px;
+            border: 2px solid var(--primary-red);
+            height: 400px;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            animation: carouselScroll 25s linear infinite;
+            height: 100%;
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes carouselScroll {
+            0% { transform: translateX(0); }
+            16.67% { transform: translateX(-100%); }
+            33.33% { transform: translateX(-200%); }
+            50% { transform: translateX(-300%); }
+            66.67% { transform: translateX(-400%); }
+            83.33% { transform: translateX(-500%); }
+            100% { transform: translateX(-600%); }
+        }
+
+        /* Ensure carousel keeps moving even when hovered */
+        .carousel-wrapper:hover .carousel-track {
+            animation-play-state: running !important;
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 100px 2rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--primary-red);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--gradient-dark);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--primary-red);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(231, 76, 60, 0.2);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+
+        .product-description {
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 2rem;
+            background: var(--dark-bg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gradient-dark);
+            border-radius: 15px;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-label {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cognitive Challenge */
+        .challenge-section {
+            padding: 100px 2rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .challenge-game {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--gradient-dark);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary-red);
+        }
+
+        .challenge-target {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-red);
+            border-radius: 50%;
+            margin: 2rem auto;
+            position: relative;
+            cursor: pointer;
+            animation: challengeMove 2s ease-in-out infinite;
+        }
+
+        @keyframes challengeMove {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(50px); }
+            75% { transform: translateX(-50px); }
+        }
+
+        .challenge-score {
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-top: 1rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 2rem;
+            background: var(--dark-bg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--gradient-dark);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-red);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-red);
+        }
+
+        .team-role {
+            color: var(--gray-text);
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Investment Section */
+        .investment-section {
+            padding: 100px 2rem;
+            background: var(--darker-bg);
+            text-align: center;
+        }
+
+        .investment-highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .investment-metric {
+            background: var(--gradient-dark);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-red);
+        }
+
+        .investment-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .investment-label {
+            color: var(--gray-text);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--darker-bg);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(231, 76, 60, 0.2);
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .floating-glasses {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .tech-hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Performance Animations */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Indicators for Accessibility */
+        .btn:focus, .nav-links a:focus {
+            outline: 2px solid var(--primary-red);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">FOCIX</a>
+            <ul class="nav-links">
+                <li><a href="#product">FOCIX Glasses</a></li>
+                <li><a href="#gallery">Glasses Gallery</a></li>
+                <li><a href="#technology">Strobe Technology</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#investment">Pre-Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="floating-glasses">
+            <div class="glasses-showcase"></div>
+        </div>
+        <div class="hero-content">
+            <div class="coming-soon-badge">Launching 2025</div>
+            <h1 class="hero-title">FOCIX<br>SMART GLASSES</h1>
+            <p class="hero-subtitle">Revolutionary eyewear featuring patented strobe technology that enhances cognitive performance and reaction time - Experience the Future of Vision Training</p>
+            <div class="hero-cta">
+                <a href="#investment" class="btn btn-primary">Reserve Early Access</a>
+                <a href="#product" class="btn btn-secondary">View Technology</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Image Carousel Section -->
+    <section class="image-carousel" id="gallery">
+        <h2 class="section-title">FOCIX SMART GLASSES COLLECTION</h2>
+        <p style="color: var(--gray-text); margin-bottom: 3rem; font-size: 1.2rem;">Premium eyewear designed for peak performance - Glasses, Cases & Technology</p>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/glasses solo/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/case/IMG_2673.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/case/5C8CB6E4-ED28-4D66-9DD6-F9D480BDFEC0.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/case/6F45CB09-B741-4C3B-879D-77E5BC8BF88B.PNG')"></div>
+                    <div class="carousel-slide" style="background-image: url('./ASSETS/14D8198A-52CB-47D6-86AC-F187F41CBC08.PNG')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Product Gallery -->
+    <section class="product-gallery">
+        <h2 class="section-title">SMART GLASSES SHOWCASE</h2>
+        <p style="color: var(--gray-text); margin-bottom: 3rem; font-size: 1.2rem;">Explore every detail of our revolutionary FOCIX smart glasses and premium accessories</p>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG')"></div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">FOCIX Smart Glasses</h3>
+                        <p class="gallery-description">Revolutionary eyewear featuring patented strobe technology for enhanced cognitive performance</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('./ASSETS/glasses solo/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG')"></div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Advanced Lens Technology</h3>
+                        <p class="gallery-description">Precision-engineered strobe lenses for optimal reaction time training</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('./ASSETS/case/5C8CB6E4-ED28-4D66-9DD6-F9D480BDFEC0.PNG')"></div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Premium Protective Case</h3>
+                        <p class="gallery-description">Durable carrying case designed to protect your FOCIX glasses</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('./ASSETS/models/7CFFA31F-A042-40F2-99CE-7267C9BC43B5.PNG')"></div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Durable Build</h3>
+                        <p class="gallery-description">Waterproof and impact-resistant for any training environment - Built for active lifestyles</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('./ASSETS/models/5EEBB7D3-1F5E-4839-A5D0-B59C0AFF1760.PNG')"></div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Ergonomic Fit</h3>
+                        <p class="gallery-description">Comfortable design for extended training sessions - See how naturally they fit</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background-image: url('./ASSETS/case/6F45CB09-B741-4C3B-879D-77E5BC8BF88B.PNG')"></div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Glasses Case Collection</h3>
+                        <p class="gallery-description">Multiple case options to keep your FOCIX smart glasses secure and protected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Showcase Section -->
+    <section class="tech-showcase" id="technology">
+        <div class="tech-container">
+            <div class="tech-hero">
+                <div class="tech-content">
+                    <h2>FOCIX SMART GLASSES TECHNOLOGY</h2>
+                    <p>Revolutionary FOCIX smart glasses featuring patented strobe technology that transforms how your brain processes visual information. Our cutting-edge eyewear unlocks human potential through precisely-engineered cognitive enhancement and performance training - launching 2025.</p>
+                    <a href="#investment" class="btn btn-primary">Pre-Order Your Glasses</a>
+                </div>
+                <div class="tech-image-container">
+                    <div class="tech-image" style="background-image: url('./ASSETS/models/060CE0BE-61C9-412C-85E5-082FD213D4BD.PNG')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section" id="product">
+        <h2 class="section-title">FOCIX SMART GLASSES LINEUP</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3 class="product-title">FOCIX Smart Glasses Pro</h3>
+                <p class="product-description">Our flagship smart glasses with patented strobe technology for enhanced cognitive performance and reaction time training. Featuring advanced lens technology and premium materials. <strong>Launching 2025</strong></p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Smart Glasses Companion App</h3>
+                <p class="product-description">Intelligent training companion specifically designed for your FOCIX glasses. Personalized sessions, real-time performance analytics, and adaptive training protocols. <strong>Beta Access Soon</strong></p>
+            </div>
+            <div class="product-card">
+                <h3 class="product-title">Premium Glasses Accessories</h3>
+                <p class="product-description">Complete your FOCIX experience with premium protective cases, cleaning kits, and replacement components. Built to keep your smart glasses in perfect condition. <strong>Available with Glasses</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <h2 class="section-title">MARKET OPPORTUNITY</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">$34.25B</div>
+                <div class="stat-label">Global Sports Tech Market (2025)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$68.7B</div>
+                <div class="stat-label">Projected Market Size (2028)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">14.9%</div>
+                <div class="stat-label">Expected CAGR Growth</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$489M</div>
+                <div class="stat-label">U.S. Esports Market</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="challenge-section">
+        <h2 class="section-title">TEST YOUR REFLEXES</h2>
+        <p style="color: var(--gray-text); margin-bottom: 2rem;">Experience cognitive training technology in action</p>
+        <div class="challenge-game">
+            <h3 style="margin-bottom: 1rem;">Reaction Time Challenge</h3>
+            <p style="color: var(--gray-text); margin-bottom: 2rem;">Click the moving target to test your current reaction time</p>
+            <div class="challenge-target" onclick="hitTarget()"></div>
+            <div class="challenge-score">Click to Start</div>
+        </div>
+    </section>
+
+    <section class="team-section" id="team">
+        <h2 class="section-title">LEADERSHIP TEAM</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">RG</div>
+                <h3 class="team-name">Russell Gulotta</h3>
+                <p class="team-role">President</p>
+                <p class="team-description">Tech innovator with 15+ years leading product development and emerging technologies; now guiding Focix's overall strategy and execution.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">MB</div>
+                <h3 class="team-name">Mark Bullock</h3>
+                <p class="team-role">Chief Marketing Officer</p>
+                <p class="team-description">20+ years in launching and scaling ventures; expert in engineering, brand strategy, and marketing leadership.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">CL</div>
+                <h3 class="team-name">Charles Lewis</h3>
+                <p class="team-role">Vice President</p>
+                <p class="team-description">20 years of entrepreneurship experience in entertainment and media; drives strategic brand growth and business development.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">DD</div>
+                <h3 class="team-name">Darryl Davis</h3>
+                <p class="team-role">Product & Logistics</p>
+                <p class="team-description">Product development, supply chain, and top-tier legal expertise; ensures operational excellence and compliance.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">SA</div>
+                <h3 class="team-name">Sultan Aziz</h3>
+                <p class="team-role">VP Sales</p>
+                <p class="team-description">20+ years leading sales and partnerships; instrumental in driving revenue growth across sports and lifestyle markets.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="investment-section" id="investment">
+        <h2 class="section-title">PRE-ORDER FOCIX SMART GLASSES</h2>
+        <p style="color: var(--gray-text); margin-bottom: 3rem; font-size: 1.2rem;">Reserve your FOCIX smart glasses today - Be among the first to experience revolutionary cognitive enhancement eyewear</p>
+        
+        <div class="investment-highlight">
+            <div class="investment-metric">
+                <div class="investment-value">$7M</div>
+                <div class="investment-label">Funding Target</div>
+            </div>
+            <div class="investment-metric">
+                <div class="investment-value">5,982%</div>
+                <div class="investment-label">5-Year ROI</div>
+            </div>
+            <div class="investment-metric">
+                <div class="investment-value">$2B</div>
+                <div class="investment-label">Year 5 Valuation</div>
+            </div>
+            <div class="investment-metric">
+                <div class="investment-value">12</div>
+                <div class="investment-label">Months to Profitability</div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <a href="#contact" class="btn btn-primary" style="font-size: 1.3rem; padding: 1.5rem 3rem;">Pre-Order FOCIX Glasses</a>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">FOCIX</div>
+            <p class="footer-text">Revolutionizing cognitive performance through innovative smart glasses technology and advanced eyewear solutions</p>
+            <div class="footer-links">
+                <a href="mailto:investors@focix.com">Investor Relations</a>
+                <a href="mailto:info@focix.com">General Inquiries</a>
+                <a href="#" onclick="alert('Press kit available upon request')">Press Kit</a>
+                <a href="#" onclick="alert('Partnership opportunities available')">Partnerships</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FOCIX. All rights reserved. | Delaware C-Corporation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navigation Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Reaction Time Challenge
+        let startTime = 0;
+        let gameActive = false;
+        let score = 0;
+        let attempts = 0;
+
+        function hitTarget() {
+            const target = document.querySelector('.challenge-target');
+            const scoreElement = document.querySelector('.challenge-score');
+            
+            if (!gameActive) {
+                startTime = Date.now();
+                gameActive = true;
+                scoreElement.textContent = 'Click the target!';
+                target.style.animation = 'challengeMove 1.5s ease-in-out infinite';
+            } else {
+                const reactionTime = Date.now() - startTime;
+                attempts++;
+                score += Math.max(0, 1000 - reactionTime);
+                
+                scoreElement.innerHTML = `
+                    <div>Reaction Time: ${reactionTime}ms</div>
+                    <div style="font-size: 1rem; margin-top: 0.5rem;">Score: ${Math.round(score/attempts)}</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem;">Click again to retry</div>
+                `;
+                
+                gameActive = false;
+                target.style.animation = 'challengeMove 2s ease-in-out infinite';
+                
+                // Add visual feedback
+                target.style.background = reactionTime < 300 ? '#2ecc71' : reactionTime < 500 ? '#f39c12' : '#e74c3c';
+                setTimeout(() => {
+                    target.style.background = 'var(--primary-red)';
+                }, 500);
+            }
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.product-card, .stat-card, .team-card, .investment-metric, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Trigger counter animations when stats section comes into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const numbers = entry.target.querySelectorAll('.stat-number');
+                    numbers.forEach(number => {
+                        const text = number.textContent;
+                        const value = parseFloat(text.replace(/[^0-9.]/g, ''));
+                        if (value > 0) {
+                            number.textContent = '0';
+                            setTimeout(() => {
+                                animateCounter(number, value);
+                            }, 200);
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(document.querySelector('.stats-section'));
+
+        // Performance optimization
+        let ticking = false;
+        function updateCursor(e) {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        document.addEventListener('mousemove', updateCursor);
+
+        // Preload critical assets
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Add hover effects for interactive elements
+        document.querySelectorAll('.btn, .product-card, .team-card, .gallery-item').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursor.style.transform += ' scale(1.5)';
+                cursor.style.background = '#3498db';
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                cursor.style.transform = cursor.style.transform.replace(' scale(1.5)', '');
+                cursor.style.background = 'var(--primary-red)';
+            });
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Ensure carousel always keeps moving
+        const carouselTrack = document.querySelector('.carousel-track');
+        
+        // Force animation to keep running
+        setInterval(() => {
+            if (carouselTrack.style.animationPlayState === 'paused') {
+                carouselTrack.style.animationPlayState = 'running';
+            }
+        }, 100);
+    </script>
+</body>
+</html>
