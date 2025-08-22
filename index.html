@@ -167,36 +167,42 @@
             align-items: center;
         }
 
-        /* Enhanced Floating Glasses - Mobile Optimized */
+        /* Enhanced Floating Glasses - Mobile First */
         .floating-glasses {
-            position: absolute;
-            right: 2%;
-            top: 50%;
-            transform: translateY(-50%);
+            position: relative;
             width: 280px;
-            height: 220px;
+            height: 200px;
             background: rgba(231, 76, 60, 0.08);
             border-radius: 20px;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(8px);
             border: 2px solid rgba(231, 76, 60, 0.4);
             animation: float 4s ease-in-out infinite;
             box-shadow: 0 10px 30px rgba(231, 76, 60, 0.2);
+            margin: 2rem auto 1.5rem auto;
         }
 
         .glasses-showcase {
-            width: 240px;
-            height: 160px;
+            width: 220px;
+            height: 140px;
             background: url('./ASSETS/glasses solo/F5195DD2-E795-4375-A8C3-B94878B63A48.PNG') center/contain no-repeat;
             filter: brightness(1.3) contrast(1.15) drop-shadow(0 5px 15px rgba(231, 76, 60, 0.3));
             animation: glassesGlow 3s ease-in-out infinite alternate;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(-50%) translateX(0) scale(1); }
-            50% { transform: translateY(-55%) translateX(10px) scale(1.02); }
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+            50% { transform: translateY(-5px) translateX(5px) scale(1.02); }
+        }
+
+        /* Desktop float animation */
+        @media (min-width: 768px) {
+            @keyframes float {
+                0%, 100% { transform: translateY(-50%) translateX(0) scale(1); }
+                50% { transform: translateY(-55%) translateX(10px) scale(1.02); }
+            }
         }
 
         @keyframes glassesGlow {
@@ -676,10 +682,13 @@
             }
             
             .floating-glasses {
-                display: flex;
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 400px;
                 height: 280px;
-                right: 5%;
+                margin: 0;
             }
             
             .glasses-showcase {
@@ -704,9 +713,13 @@
         /* Large Desktop Styles */
         @media (min-width: 1200px) {
             .floating-glasses {
+                position: absolute;
+                right: 8%;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 450px;
                 height: 320px;
-                right: 8%;
+                margin: 0;
             }
             
             .glasses-showcase {
