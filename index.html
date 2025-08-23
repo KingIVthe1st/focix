@@ -571,15 +571,15 @@
 
         .investment-highlight {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 3rem auto;
         }
 
         .investment-metric {
             background: var(--gradient-dark);
-            padding: 1.5rem;
+            padding: 1rem;
             border-radius: 15px;
             border: 2px solid var(--primary-red);
             position: relative;
@@ -588,7 +588,7 @@
 
         .investment-glasses-image {
             width: 100%;
-            height: 180px;
+            height: 220px;
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
@@ -745,6 +745,15 @@
             .tech-image-container {
                 height: 400px;
             }
+
+            .investment-highlight {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 600px;
+            }
+
+            .investment-glasses-image {
+                height: 200px;
+            }
         }
 
         /* Large Desktop Styles */
@@ -767,6 +776,15 @@
             .hero-content {
                 max-width: 600px;
                 margin-left: 4rem;
+            }
+
+            .investment-highlight {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 800px;
+            }
+
+            .investment-glasses-image {
+                height: 250px;
             }
         }
 
