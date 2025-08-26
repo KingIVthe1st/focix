@@ -160,7 +160,7 @@
             transform: translateY(-2px);
         }
 
-        /* Scrolling Banner */
+        /* Scrolling Banner - Enhanced Continuous */
         .scrolling-banner {
             background: #ffffff;
             color: #000000;
@@ -172,16 +172,56 @@
 
         .scrolling-text {
             display: inline-block;
-            animation: scroll 30s linear infinite;
+            animation: scroll 60s linear infinite;
             font-size: 0.9rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            padding-right: 100vw;
+        }
+
+        .scrolling-text::after {
+            content: 'Focix Gen 1 - Coming Soon • Focix Game - Coming Soon • Focix Pro - Coming Soon • Focix MPro - Coming Soon • Revolutionary Cognitive Enhancement Technology • ';
+            padding-left: 100vw;
         }
 
         @keyframes scroll {
-            0% { transform: translateX(100%); }
+            0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
+        }
+
+        /* Smooth Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
         }
 
         /* Product Grid - Two Column Layout */
@@ -495,31 +535,210 @@
             z-index: 10;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        /* Premium Mobile & Desktop Responsive */
+        
+        /* Enhanced hover effects */
+        .product-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .collection-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .collection-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .collection-item:hover .collection-image img {
+            transform: scale(1.05);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Enhanced Navigation */
+        .nav {
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        /* Premium Button Effects */
+        .hero-cta, .shop-now-btn, .subscribe-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-cta::before, .shop-now-btn::before, .subscribe-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-cta:hover::before, .shop-now-btn:hover::before, .subscribe-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 1.5rem;
             }
             
             .hero-title {
-                font-size: clamp(2rem, 10vw, 4rem);
+                font-size: clamp(2.5rem, 8vw, 6rem);
+            }
+            
+            .premium-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .collection-grid, .products-grid {
+                padding: 0 1rem;
+            }
+            
+            .shop-collection {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Mobile Styles - Premium Feel */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
             }
             
             .nav-container {
                 padding: 0 1rem;
             }
             
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: clamp(2rem, 12vw, 4rem);
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-cta {
+                padding: 1.2rem 3rem;
+                font-size: 1rem;
+            }
+            
+            .scrolling-text {
+                font-size: 0.8rem;
+                letter-spacing: 0.5px;
+            }
+            
             .products-section {
-                padding: 1rem;
+                padding: 1rem 0.5rem;
             }
             
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 0;
+                gap: 1rem;
             }
 
             .product-image {
-                height: 50vh;
+                height: 40vh;
+            }
+            
+            .product-info {
+                top: 1rem;
+                left: 1rem;
+            }
+            
+            .popup-notice {
+                bottom: 1rem;
+                left: 1rem;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.8rem;
+            }
+            
+            .shop-collection {
+                padding: 2rem 1rem;
+            }
+            
+            .collection-header h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .collection-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0;
+            }
+            
+            .collection-item {
+                height: 350px;
+            }
+            
+            .premium-section {
+                padding: 2rem 1rem;
+            }
+            
+            .premium-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .premium-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .email-section {
+                height: 400px;
+            }
+            
+            .email-signup {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .email-input {
+                width: 100%;
+            }
+        }
+
+        /* Small Mobile Optimization */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: clamp(1.8rem, 10vw, 3rem);
+            }
+            
+            .hero-cta {
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            .product-image {
+                height: 35vh;
+            }
+            
+            .collection-item {
+                height: 300px;
+            }
+            
+            .premium-text h2 {
+                font-size: 1.5rem;
             }
         }
 
@@ -592,6 +811,37 @@
         </div>
     </section>
 
+    <!-- Gen 1 & Pro Collection Section -->
+    <section class="shop-collection">
+        <div class="collection-header">
+            <h2>Shop the Collection</h2>
+        </div>
+        <div class="collection-grid">
+            <!-- Focix Gen 1 -->
+            <div class="collection-item">
+                <div class="collection-image" style="background: linear-gradient(135deg, #a8c0e0 0%, #7a9dd1 100%); position: relative;">
+                    <img src="./ASSETS/glasses solo/gen1/1B3C47E3-1E12-43B5-9D5A-A39C7F551527.PNG" alt="Focix Gen 1" style="width: 200px; height: auto; object-fit: contain;">
+                </div>
+                <div class="collection-popup">
+                    Don't miss out! <span class="popup-close">×</span>
+                </div>
+                <div class="collection-info">
+                    <h3>FOCIX GEN 1</h3>
+                </div>
+            </div>
+
+            <!-- Focix Pro -->
+            <div class="collection-item">
+                <div class="collection-image" style="background: #f5f5f5;">
+                    <img src="./ASSETS/glasses solo/pro/8A5B7183-BE0E-4F4D-A283-396995B805F7.PNG" alt="Focix Pro" style="width: 200px; height: auto; object-fit: contain;">
+                </div>
+                <div class="collection-info">
+                    <h3>FOCIX PRO</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Shop the Collection Section -->
     <section class="shop-collection">
         <div class="collection-header">
@@ -628,7 +878,7 @@
             </div>
             <div class="premium-text">
                 <h2>Premium smart glasses for all occasions</h2>
-                <a href="#contact" class="shop-now-btn">SHOP NOW</a>
+                <a href="#contact" class="shop-now-btn">COMING SOON</a>
             </div>
         </div>
     </section>
@@ -674,6 +924,112 @@
             } else {
                 nav.style.background = 'rgba(0, 0, 0, 0.9)';
             }
+        });
+
+        // Premium Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animation classes to elements
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                card.classList.add('fade-in');
+                card.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(card);
+            });
+
+            const collectionItems = document.querySelectorAll('.collection-item');
+            collectionItems.forEach((item, index) => {
+                item.classList.add('slide-up');
+                item.style.transitionDelay = `${index * 0.3}s`;
+                observer.observe(item);
+            });
+
+            const premiumSection = document.querySelector('.premium-section');
+            if (premiumSection) {
+                premiumSection.classList.add('scale-in');
+                observer.observe(premiumSection);
+            }
+
+            const emailSection = document.querySelector('.email-section');
+            if (emailSection) {
+                emailSection.classList.add('fade-in');
+                observer.observe(emailSection);
+            }
+
+            // Enhanced scroll navigation
+            const nav = document.querySelector('.nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Premium popup interactions
+            document.querySelectorAll('.popup-close').forEach(closeBtn => {
+                closeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.target.closest('.popup-notice, .collection-popup, .email-popup').style.opacity = '0';
+                    setTimeout(() => {
+                        e.target.closest('.popup-notice, .collection-popup, .email-popup').style.display = 'none';
+                    }, 300);
+                });
+            });
+
+            // Enhanced button hover effects
+            document.querySelectorAll('.hero-cta, .shop-now-btn, .subscribe-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+
+        // Performance optimization - Lazy load background images
+        const lazyBackgrounds = document.querySelectorAll('.product-image, .email-bg img');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        lazyBackgrounds.forEach(bg => {
+            bg.style.opacity = '0';
+            bg.style.transition = 'opacity 0.6s ease';
+            imageObserver.observe(bg);
         });
     </script>
 </body>
